@@ -1,0 +1,199 @@
+/* Стили для уведомления о безопасности */
+.security-notice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 107, 53, 0.1);
+    border: 1px solid #ff6b35;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    color: #ff6b35;
+    font-weight: 500;
+}
+
+.security-notice i {
+    font-size: 1.2rem;
+}
+
+/* Инструкции по безопасности */
+.instructions {
+    background: rgba(15, 15, 26, 0.7);
+}
+
+.security-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.security-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.security-step:hover {
+    border-color: rgba(255, 107, 53, 0.3);
+    transform: translateY(-2px);
+}
+
+.security-step.important {
+    background: rgba(255, 107, 53, 0.1);
+    border-color: #ff6b35;
+}
+
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.step-content p {
+    color: #b0b7c3;
+    margin-bottom: 0.5rem;
+}
+
+.step-content ul {
+    color: #b0b7c3;
+    margin-left: 1rem;
+}
+
+.step-content li {
+    margin-bottom: 0.3rem;
+}
+
+.step-content strong {
+    color: #ff6b35;
+}
+
+/* Решение проблем */
+.troubleshooting {
+    display: grid;
+    gap: 2rem;
+}
+
+.problem-solution {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.problem-solution h3 {
+    color: #ff6b35;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.solution-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.solution-step {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 3px solid #ff6b35;
+}
+
+.solution-step h4 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.solution-step ol {
+    color: #b0b7c3;
+    margin-left: 1rem;
+}
+
+.solution-step li {
+    margin-bottom: 0.5rem;
+}
+
+/* Гарантия безопасности */
+.security-guarantee {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 184, 148, 0.3);
+}
+
+.security-guarantee h3 {
+    color: #00b894;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guarantee-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+    background: rgba(0, 184, 148, 0.1);
+    border-radius: 8px;
+    color: #00b894;
+}
+
+/* Футер с информацией о безопасности */
+.footer-security {
+    background: rgba(255, 107, 53, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #ff6b35;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .security-step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-icon {
+        align-self: center;
+    }
+    
+    .solution-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .guarantee-features {
+        grid-template-columns: 1fr;
+    }
+}

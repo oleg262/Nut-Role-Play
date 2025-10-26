@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создать тестовый ZIP</title>
+</head>
+<body>
+    <h1>Создание тестового ZIP архива</h1>
+    <button onclick="createZip()">Создать NutRolePlay.zip</button>
+    
+    <script>
+        function createZip() {
+            // Создаем простой текстовый файл с инструкцией
+            const content = `
+Nut Role Play Launcher v1.0.0
+
+Инструкция по установке:
+1. Распакуйте этот архив
+2. Запустите NutRolePlay.exe
+3. Наслаждайтесь игрой!
+
+Размер: 67 MB (тестовый файл)
+            `;
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const file = new File([blob], 'readme.txt');
+            
+            // Создаем ZIP архив
+            const zip = new JSZip();
+            zip.file("readme.txt", file);
+            zip.file("NutRolePlay.exe", new Blob(["MZ...fake exe content"], { type: 'application/octet-stream' }));
+            
+            zip.generateAsync({type:"blob"}).then(function(content) {
+                // Сохраняем файл
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(content);
+                link.download = 'NutRolePlay.zip';
+                link.click();
+                
+                alert('ZIP архив создан! Положите его в папку downloads/');
+            });
+        }
+    </script>
+    
+    <!-- Подключаем библиотеку для создания ZIP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</body>
+</html>
