@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nut RP - Nut Role Play | Официальный сервер GTA SAMP</title>
+    <meta name="description" content="Nut RP - лучший русскоязычный Role Play сервер в GTA San Andreas Multiplayer. Присоединяйся к уникальному миру ролевой игры!">
+    <meta name="keywords" content="nut rp, nut role play, gta samp, самп рп, role play, рп сервер, gta san andreas multiplayer, нут рп">
+    <meta name="author" content="Nut Role Play">
+    
+    <!-- Open Graph мета-теги для соцсетей -->
+    <meta property="og:title" content="Nut RP - Официальный Role Play сервер">
+    <meta property="og:description" content="Присоединяйся к лучшему RP серверу в GTA SAMP! Уникальная экономика, реалистичный геймплей, активное сообщество.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oleg262.github.io/Nut-Role-Play/">
+    <meta property="og:image" content="https://oleg262.github.io/Nut-Role-Play/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nut RP - Role Play сервер">
+    <meta name="twitter:description" content="Лучший русскоязычный RP сервер в GTA SAMP">
+    
+    <!-- Дополнительные SEO теги -->
+    <link rel="canonical" href="https://oleg262.github.io/Nut-Role-Play/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#ff6b35">
+    
+    <!-- Structured Data (JSON-LD) для лучшей индексации -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Nut Role Play",
+        "alternateName": "Nut RP",
+        "description": "Русскоязычный Role Play сервер в GTA San Andreas Multiplayer",
+        "gamePlatform": "GTA San Andreas Multiplayer",
+        "applicationCategory": "Game",
+        "genre": "Role Playing Game",
+        "url": "https://oleg262.github.io/Nut-Role-Play/",
+        "author": {
+            "@type": "Organization",
+            "name": "Nut Role Play"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RUB"
+        }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #ffd166;
+            --dark-bg: #0f0f1a;
+            --darker-bg: #0a0a12;
+            --text-light: #ffffff;
+            --text-gray: #b0b7c3;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background: var(--darker-bg);
+            overflow-x: hidden;
+        }
+
+        /* Анимированный фон */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #0a0a12, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        .header {
+            background: rgba(15, 15, 26, 0.9);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.5));
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-main {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Главный баннер */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 100px 0 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 2;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.2);
+            border: 1px solid var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .hero-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .title-nut {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title-rp {
+            color: var(--text-light);
+            display: block;
+            margin-top: -10px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 30px;
+            max-width: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-primary span {
+            font-size: 1.3rem;
+        }
+
+        .btn-primary small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Секции */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--text-light);
+        }
+
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Скачать */
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .download-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .system-req {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .btn-download {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .archive-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            justify-content: center;
+        }
+
+        .funny-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            justify-content: center;
+        }
+
+        .funny-text.fast {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            border: 1px solid #2ecc71;
+        }
+
+        .funny-text.slow {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+            border: 1px solid #e74c3c;
+        }
+
+        .instructions {
+            background: rgba(255, 107, 53, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .instructions h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions ol {
+            color: var(--text-gray);
+            margin-left: 1.5rem;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .warning-box h4 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Футер */
+        .footer {
+            background: rgba(10, 10, 18, 0.95);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.2);
+            text-align: center;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Скрытый текст для SEO */
+        .seo-text {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Скрытый текст для SEO -->
+    <div class="seo-text">
+        <h1>Nut RP - Nut Role Play сервер GTA SAMP</h1>
+        <p>Nut Role Play - лучший русскоязычный Role Play сервер в GTA San Andreas Multiplayer. Присоединяйся к уникальному миру ролевой игры! Скачать лаунчер Nut RP можно бесплатно. Nut RP сервер предлагает реалистичную экономику, уникальные профессии и активное сообщество игроков.</p>
+        <h2>Ключевые слова: nut rp, nut role play, gta samp рп, самп рп сервер, role play, нут рп</h2>
+    </div>
+
+    <!-- Анимированный фон -->
+    <div class="animated-bg"></div>
+    
+    <!-- Шапка -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-icon">🥜</div>
+                <div class="logo-text">
+                    <span class="logo-main">NUT RP</span>
+                    <span class="logo-sub">ROLE PLAY SERVER</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#download"><i class="fas fa-download"></i> Скачать лаунчер</a></li>
+                <li><a href="#support"><i class="fas fa-headset"></i> Поддержка</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>NUT RP СЕРВЕР GTA SAMP</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-nut">NUT RP</span>
+                <span class="title-rp">ROLE PLAY SERVER</span>
+            </h1>
+            <p class="hero-description">Присоединяйся к лучшему русскоязычному Role Play серверу в GTA San Andreas Multiplayer. Уникальная экономика, реалистичный геймплей и активное сообщество.</p>
+            
+            <div class="download-buttons">
+                <a href="https://disk.yandex.ru/d/opCMjFFZ2z7jgA" class="btn btn-primary" target="_blank" onclick="trackDownload('yandex')">
+                    <i class="fas fa-download"></i>
+                    <span>Скачать лаунчер Nut RP</span>
+                    <small>GTA SAMP • Role Play • Бесплатно</small>
+                </a>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">игроков онлайн</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">работа сервера</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">стабильность</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Скачать -->
+    <section id="download" class="download">
+        <div class="container">
+            <h2 class="section-title">Скачать <span>Nut RP лаунчер</span></h2>
+            
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="platform-icon"><i class="fab fa-yandex"></i></div>
+                    <h3>Быстрая загрузка</h3>
+                    <p>Яндекс.Диск • Максимальная скорость</p>
+                    <div class="system-req">
+                        <span>• GTA San Andreas</span>
+                        <span>• Windows 7/8/10/11</span>
+                        <span>• 2GB RAM</span>
+                    </div>
+                    <a href="https://disk.yandex.ru/d/opCMjFFZ2z7jgA" class="btn btn-download" target="_blank" onclick="trackDownload('yandex')">
+                        <i class="fab fa-yandex"></i>
+                        Скачать Nut RP лаунчер
+                    </a>
+                    <div class="archive-info">
+                        <i class="fas fa-rocket"></i>
+                        <span>Скорость до 10 МБ/с</span>
+                    </div>
+                    <div class="funny-text fast">
+                        <i class="fas fa-cocktail"></i>
+                        (100 рублей на мохито разрабу)
+                    </div>
+                </div>
+                
+                <div class="download-card">
+                    <div class="platform-icon"><i class="fas fa-file-archive"></i></div>
+                    <h3>Резервная ссылка</h3>
+                    <p>GitHub • Медленнее</p>
+                    <div class="system-req">
+                        <span>• Тот же лаунчер</span>
+                        <span>• Медленная загрузка</span>
+                        <span>• Запасной вариант</span>
+                    </div>
+                    <a href="https://oleg262.github.io/Nut-Role-Play/downloads/Nut%20Role%20Play%20Setup%201.0.0.zip" class="btn btn-download" style="background: rgba(255,107,53,0.5);" target="_blank" onclick="trackDownload('github')">
+                        <i class="fas fa-clock"></i>
+                        Скачать Nut RP (медленно)
+                    </a>
+                    <div class="archive-info">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Медленная загрузка</span>
+                    </div>
+                    <div class="funny-text slow">
+                        <i class="fas fa-poop"></i>
+                        (фу нищий)
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h4><i class="fas fa-info-circle"></i> Как начать играть на Nut RP сервере:</h4>
+                <ol>
+                    <li>Скачайте <strong>Nut RP лаунчер</strong> через Яндекс.Диск</li>
+                    <li>Установите лаунчер и запустите его</li>
+                    <li>Запустите GTA San Andreas через лаунчер</li>
+                    <li>Автоматически подключитесь к <strong>Nut RP серверу</strong></li>
+                    <li>Начните свою историю в мире Role Play!</li>
+                </ol>
+            </div>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-check-circle"></i> Особенности Nut RP сервера:</h4>
+                <ul style="color: var(--text-gray); margin-left: 1.5rem;">
+                    <li>Уникальная экономическая система</li>
+                    <li>Реалистичный Role Play геймплей</li>
+                    <li>Активное русскоязычное сообщество</li>
+                    <li>Регулярные обновления и ивенты</li>
+                    <li>Техническая поддержка 24/7</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Поддержка -->
+    <section id="support" class="support">
+        <div class="container">
+            <h2 class="section-title">Nut RP <span>Сообщество</span></h2>
+            <div style="text-align: center; color: var(--text-gray);">
+                <p>Присоединяйся к сообществу Nut Role Play сервера:</p>
+                <div style="margin-top: 20px;">
+                    <p style="margin-bottom: 10px;">💬 Discord: discord.gg/nutrp</p>
+                    <p style="margin-bottom: 10px;">📱 VK группа: vk.com/nutrp</p>
+                    <p style="margin-bottom: 10px;">🎮 IP сервера: nut-rp.com:7777</p>
+                    <p>📧 Техподдержка: support@nut-rp.com</p>
+                </div>
+
+                <div class="instructions" style="margin-top: 2rem;">
+                    <h4><i class="fas fa-star"></i> Почему выбирают Nut RP?</h4>
+                    <p>Nut Role Play - это не просто сервер, это целая вселенная возможностей для ролевой игры в GTA SAMP. Присоединяйся к нам!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Nut Role Play Server. Все права защищены.</p>
+            <p style="margin-top: 10px; color: var(--text-gray); font-size: 0.9rem;">
+                GTA San Andreas Multiplayer Role Play сервер | Nut RP v1.0.0
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Функция для отслеживания скачивания
+        function trackDownload(type) {
+            if (type === 'yandex') {
+                showNotification('Открывается Яндекс.Диск... Скачивайте Nut RP лаунчер!', 'info');
+            } else {
+                showNotification('Начинается загрузка Nut RP с GitHub...', 'info');
+            }
+            
+            // Логируем в консоль для аналитики
+            console.log('Скачивание Nut RP через:', type);
+        }
+
+        // Функция для показа уведомлений
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'linear-gradient(135deg, #ff6b35, #f7931e)' : 
+                          type === 'error' ? 'linear-gradient(135deg, #e74c3c, #c0392b)' :
+                          'linear-gradient(135deg, #3498db, #2980b9)'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 10001;
+                font-weight: 500;
+                max-width: 400px;
+                border-left: 4px solid rgba(255,255,255,0.3);
+                animation: slideIn 0.3s ease;
+            `;
+            
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 
+                                 type === 'error' ? 'fa-exclamation-triangle' : 
+                                 'fa-info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 5000);
+        }
+
+        // Добавляем стиль для анимации
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Плавная прокрутка для навигации
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Автоматическое уведомление при загрузке страницы
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                showNotification('Добро пожаловать на официальный сайт Nut RP сервера!', 'info');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
